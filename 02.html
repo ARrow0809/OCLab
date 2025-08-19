@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第2章：揺るぎないアカウント設計</title>
+    <!-- Tailwind CSSを読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter) を読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 日本語フォントと英字フォントの指定 */
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* 見出し用のスタイル */
+        .section-title {
+            font-weight: 900;
+            letter-spacing: 0.05em;
+        }
+        /* グラデーションテキストのスタイル */
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <!-- ヘッダーセクション -->
+        <header class="text-center mb-12 md:mb-20">
+            <h2 class="text-sm md:text-base text-indigo-400 font-bold tracking-widest uppercase">第2章：土台構築編</h2>
+            <h1 class="text-4xl md:text-6xl font-black text-white mt-2 leading-tight">
+                全ての始まりは<br class="md:hidden"><span class="gradient-text">「揺るぎないアカウント設計」</span>から
+            </h1>
+        </header>
+
+        <!-- 本章でお伝えすること -->
+        <section class="bg-gray-800/50 rounded-2xl p-6 md:p-8 mb-12 md:mb-20 ring-1 ring-white/10">
+            <h3 class="text-2xl font-bold text-center mb-6 text-white">本章でお伝えすること</h3>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0 h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold mt-1">1</div>
+                    <div>
+                        <h4 class="font-bold text-lg text-indigo-300">Xアカウントの「顔」となる運用スタイルを決める</h4>
+                        <p class="text-gray-400 mt-1">「なりきり型」か「中の人見せ型」か、それぞれの特徴と選び方を比較し、あなたの目標達成に最適なスタイルを決定します。</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0 h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mt-1">2</div>
+                    <div>
+                        <h4 class="font-bold text-lg text-purple-300">一瞬で「フォローしたい！」と思わせる戦略的プロフィール</h4>
+                        <p class="text-gray-400 mt-1">見込み客を惹きつけ収益化に繋げる、アカウント名、アイコン、自己紹介文など各要素の具体的な作成ポイントを解説します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ステップ2-1 -->
+        <section class="mb-12 md:mb-20">
+            <h2 class="section-title text-3xl md:text-4xl text-center mb-10 text-white">
+                <span class="text-indigo-400">Step 2-1:</span> 運用スタイルを決める
+            </h2>
+            <p class="text-center max-w-2xl mx-auto mb-12 text-gray-400">
+                「誰が、どのような役割で情報発信するのか」は最も重要な戦略判断です。アカウントの主体を明確に定めることで、集客から収益化までの道筋が決まります。
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- A. オリキャラなりきり型 -->
+                <div class="bg-gray-800 rounded-2xl p-6 ring-1 ring-pink-500/50 shadow-lg shadow-pink-500/10">
+                    <h3 class="text-2xl font-bold text-pink-400 mb-4">A. オリキャラなりきり型</h3>
+                    <p class="font-semibold mb-6 text-white">オリキャラ自身が発信の主体となり、ファンを夢中にさせる</p>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong class="text-pink-400">特徴：</strong> キャラクターの世界観でファンと直接交流し、強い愛着を育む。「特別な体験」が購入意欲に繋がる。</p>
+                        <p><strong class="text-pink-400">メリット：</strong> 高いエンゲージメント、IPビジネスへの展開、口コミ効果の最大化。</p>
+                        <p><strong class="text-pink-400">留意点：</strong> キャラクター性の一貫性維持、長期的な育成へのコミットメントが必要。</p>
+                    </div>
+                </div>
+
+                <!-- B. AIイラストレーター（中の人見せ）型 -->
+                <div class="bg-gray-800 rounded-2xl p-6 ring-1 ring-sky-500/50 shadow-lg shadow-sky-500/10">
+                    <h3 class="text-2xl font-bold text-sky-400 mb-4">B. 中の人見せ型</h3>
+                    <p class="font-semibold mb-6 text-white">制作者として技術や知識を発信し、顧客を魅了する</p>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong class="text-sky-400">特徴：</strong> 専門性や信頼性で顧客を惹きつけ、オリキャラを「技術力の結晶」として評価させる。高単価な依頼に繋がる。</p>
+                        <p><strong class="text-sky-400">メリット：</strong> 効率的なターゲット集客、高単価案件の獲得、発信テーマの拡張性。</p>
+                        <p><strong class="text-sky-400">留意点：</strong> 強力なセルフブランディングと継続的なスキルアップが必須。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- どちらのスタイルが適しているか？ -->
+            <div class="mt-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-1 rounded-2xl">
+                <div class="bg-gray-900 rounded-xl p-8 text-center">
+                    <h4 class="text-2xl font-bold mb-4 text-white">あなたの目標はどちらですか？</h4>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+                        <div class="text-center">
+                            <p class="text-lg">「キャラクターグッズで大きな収入を！」</p>
+                            <p class="text-2xl font-bold text-pink-400 mt-1">→ 「なりきり型」</p>
+                        </div>
+                        <div class="text-gray-600 text-lg font-bold">OR</div>
+                        <div class="text-center">
+                            <p class="text-lg">「高単価な制作案件を獲得したい！」</p>
+                            <p class="text-2xl font-bold text-sky-400 mt-1">→ 「中の人見せ型」</p>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-500">※これらのスタイルは固定的ではなく、成長段階に合わせて調整・組み合わせも可能です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ステップ2-2 -->
+        <section>
+            <h2 class="section-title text-3xl md:text-4xl text-center mb-10 text-white">
+                <span class="text-purple-400">Step 2-2:</span> 戦略的プロフィール作成
+            </h2>
+            <p class="text-center max-w-2xl mx-auto mb-12 text-gray-400">
+                運用スタイルが決まったら、その魅力を凝縮したプロフィールを作り込みます。アイコン、ヘッダー、自己紹介文は、あなたのお店の「顔」であり「看板」です。
+            </p>
+
+            <div class="space-y-8">
+                <!-- アカウント名とユーザーID -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 ring-1 ring-white/10">
+                    <h4 class="font-bold text-xl text-purple-300 mb-2">アカウント名 & ユーザーID</h4>
+                    <p class="text-gray-400">記憶に残り、検索されやすい「お店の名前」をつけましょう。</p>
+                    <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
+                        <li><strong class="text-white">アカウント名：</strong> 活動内容が伝わるキーワードを盛り込む。（例：「るな｜AIVtuber」）</li>
+                        <li><strong class="text-white">ユーザーID：</strong> 短く、覚えやすく、他の活動場所と統一性を持たせる。</li>
+                    </ul>
+                </div>
+
+                <!-- アイコンとヘッダー画像 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 ring-1 ring-white/10">
+                    <h4 class="font-bold text-xl text-purple-300 mb-2">アイコン & ヘッダー画像</h4>
+                    <p class="text-gray-400">言葉を超える、第一印象を決める「視覚的な看板」をデザインします。</p>
+                    <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
+                        <li><strong class="text-white">アイコン：</strong> 表情豊かで個性が伝わるバストアップや顔のアップが基本。</li>
+                        <li><strong class="text-white">ヘッダー画像：</strong> 提供価値と世界観を一枚絵で物語る。キャラが最も輝く瞬間を。</li>
+                    </ul>
+                </div>
+
+                <!-- 自己紹介文 -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 ring-1 ring-white/10">
+                    <h4 class="font-bold text-xl text-purple-300 mb-2">自己紹介文（160文字の魔法）</h4>
+                    <p class="text-gray-400">訪問者の心を掴み、フォローや購入を促す戦略的な文章です。</p>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-900 p-4 rounded-lg border border-sky-500/30">
+                            <p class="font-bold text-sky-400 mb-2">【中の人見せ型 例文】</p>
+                            <p class="text-sm whitespace-pre-line text-gray-300">AIイラストクリエイター。AI関連情報を発信中。ゆるいイラストが得意。
+使用ツール：nijiジャーニー、TensorArtなど。
+試行錯誤し、自身が良いと思ったものを投稿。人物、特に猫侍のイラストが多く、空気感やゆるさを大切にしています。
+アイコン作成・イラスト作成の依頼はDMでご相談ください。</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-pink-500/30">
+                            <p class="font-bold text-pink-400 mb-2">【なりきり型 例文】</p>
+                            <p class="text-sm whitespace-pre-line text-gray-300">AIイラストと漫画を作成するアカウント。加筆修正あり。
+少しえっちな、〇〇（属性）の〇〇ちゃんを投稿中。
+「えちかわいい」絵と漫画の完全版は別サイトへ。お仕事はDMまで。
+fanza (URL短縮)
+D|site (URL短縮)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 固定ツイート -->
+                <div class="bg-gray-800/50 rounded-2xl p-6 ring-1 ring-white/10">
+                    <h4 class="font-bold text-xl text-purple-300 mb-2">固定ツイート</h4>
+                    <p class="text-gray-400">最も目立つ一等地に「目玉商品」を戦略的に配置します。</p>
+                    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>最強の「看板商品」を展示</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>期間限定キャンペーン情報</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>お役立ち情報の提供</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>全ての「売り場」への総合案内</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- フッター/結論 -->
+        <footer class="mt-12 md:mt-20 text-center border-t border-white/10 pt-8">
+            <p class="text-xl md:text-2xl font-bold text-white">この盤石な土台が完成すれば、<br>あなたのアカウントは強力な<br class="md:hidden"> <span class="gradient-text">自動集客システム</span>への<br class="md:hidden">第一歩を踏み出します。</p>
+            <p class="text-gray-500 mt-4 text-sm">24時間365日、あなたのために働き続けます。</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

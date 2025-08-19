@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オリキャラビジネスを覚醒させる「X集客の教科書」</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony (Warm Neutrals with a touch of blue) -->
+    <!-- Application Structure Plan: A narrative-driven, single-page journey. It starts with a hook (the problem), presents an interactive data visualization to demonstrate the impact of the solution (the "Aha!" moment), details the solution's benefits, addresses potential user objections, and concludes with a strong call to action. This structure is chosen to guide the user logically from problem awareness to solution adoption, using interaction to make the core message more persuasive and memorable than a static page. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Sales comparison between Yahoo! Auctions only vs. with X. 
+        - Goal: Compare potential revenue and show the dramatic impact of X.
+        - Viz/Presentation Method: Interactive Bar Chart.
+        - Interaction: A slider allows the user to dynamically change the number of visitors from X. The bar chart updates in real-time to reflect the new potential sales.
+        - Justification: This transforms a static data point into an engaging, exploratory tool. Users can see for themselves how even a small increase in traffic from X can significantly boost revenue, making the argument far more compelling.
+        - Library/Method: Chart.js (Canvas).
+        - Other elements like the "3 Walls" and "3 Revolutions" use a card-based layout with subtle hover effects (HTML/CSS) for clean, organized, and slightly interactive presentation of text content.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #FDFBF8;
+            color: #4A4A4A;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 50vh;
+            max-height: 450px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="sticky top-0 bg-white/80 backdrop-blur-lg z-10 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-800">オリキャラビジネス成長戦略</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#problem" class="text-gray-600 hover:text-blue-600">3つの壁</a>
+                <a href="#impact" class="text-gray-600 hover:text-blue-600">インパクト</a>
+                <a href="#solution" class="text-gray-600 hover:text-blue-600">3つの革命</a>
+                <a href="#cta" class="text-gray-600 hover:text-blue-600">今すぐ学ぶ</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">ヤフオク出品だけでは、限界かも？</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-blue-600 mb-8">あなたのオリキャラビジネスを覚醒させる「X集客の教科書」</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-10">
+                    本編で解説したヤフオク戦略に「X」を掛け合わせることで、あなたのビジネスは爆発的に成長します。この記事では、月商198万円の目標達成を現実にするための、最も効果的で誰にでも実践できるX集客術を徹底解説します。
+                </p>
+                <a href="#cta" class="cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700">
+                    Xの力を解放する
+                </a>
+            </div>
+        </section>
+
+        <section id="problem" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">なぜ、ヤフオクだけではダメなのか？</h2>
+                    <p class="text-gray-600 mt-2">ビジネスの成長を阻む「3つの壁」が存在します。</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 rounded-xl shadow-md text-center">
+                        <div class="text-5xl mb-4">🧱</div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">壁1：集客の限界</h3>
+                        <p class="text-gray-600">ヤフオクの機能だけでは、あなたの出品ページを見てくれる人の数に限界があります。見込み客が少なければ、売上も頭打ちになります。</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-xl shadow-md text-center">
+                        <div class="text-5xl mb-4">📉</div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">壁2：市場規模の限界</h3>
+                        <p class="text-gray-600">ヤフオクの市場も大きいですが、Xには比較にならないほど多くの潜在顧客がいます。より広い層にアプローチできる巨大な市場です。</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-xl shadow-md text-center">
+                        <div class="text-5xl mb-4">💔</div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">壁3：顧客育成の限界</h3>
+                        <p class="text-gray-600">ビジネスの安定にはリピーターが不可欠ですが、ヤフオクのシステムでは購入者と継続的な関係を築くのは困難です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">Xがもたらす売上のインパクト</h2>
+                    <p class="text-gray-600 mt-2">下のスライダーを動かして、Xからのアクセスが増えた場合の売上変化を体験してください。</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="mt-8 px-4">
+                        <label for="trafficSlider" class="block text-center text-gray-700 font-bold mb-2">Xからの追加アクセス数: <span id="trafficValue" class="text-blue-600">300</span>人</label>
+                        <input id="trafficSlider" type="range" min="0" max="1000" value="300" step="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">3つの壁を破壊する鍵、それが「X」です</h2>
+                    <p class="text-gray-600 mt-2">Xはあなたのビジネスに3つの革命をもたらします。</p>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <div class="flex items-start space-x-6 p-6 glass-card rounded-xl">
+                        <div class="text-4xl">🚀</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">売上が飛躍的に伸びる</h3>
+                            <p class="text-gray-600 mt-1">Xからのアクセスで、見込み客の母数を増やし、売上を2倍、3倍へと引き上げます。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 p-6 glass-card rounded-xl">
+                        <div class="text-4xl">🌍</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">新たなファンと出会える</h3>
+                            <p class="text-gray-600 mt-1">ヤフオクの枠を超え、あなたのキャラクターをまだ知らない巨大な潜在顧客層にその魅力を届けます。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 p-6 glass-card rounded-xl">
+                        <div class="text-4xl">💎</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">最強の資産「顧客リスト」が手に入る</h3>
+                            <p class="text-gray-600 mt-1">購入前から質の高い見込み客と繋がり、LTV（顧客生涯価値）を最大化し、安定した収益基盤を築きます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objection" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">「でも、X運用って面倒くさそう…」</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-8">
+                    毎日の投稿やフォロワー増は大変に感じるかもしれません。しかし、その少しの手間で得られる「売上2〜3倍の可能性」「新しいファンとの出会い」「ビジネスを安定させる顧客リスト」というリターンを考えれば、その価値は計り知れません。
+                </p>
+                <p class="max-w-3xl mx-auto text-lg font-bold text-gray-700">
+                    本編の戦略にX運用戦略を加えることで生まれる成果は、あなたの期待を必ず大きく上回るはずです。
+                </p>
+            </div>
+        </section>
+
+        <section id="cta" class="py-20 bg-blue-600">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">さあ、Xの力を解放し、ビジネスを次のステージへ。</h2>
+                <p class="text-blue-100 text-lg mb-8">あなたのオリキャラの可能性を、最大限に引き出しましょう。</p>
+                <button class="cta-button bg-white text-blue-600 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-gray-100 text-lg">
+                    今すぐX集客術を学ぶ
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 オリキャラビジネス成長戦略. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.getElementById('trafficSlider');
+            const trafficValue = document.getElementById('trafficValue');
+            const ctx = document.getElementById('salesChart').getContext('2d');
+
+            const baseVisitors = 300;
+            const itemsForSale = 50;
+            const conversionRate = 0.10;
+            const avgPrice = 300;
+
+            let salesChart;
+
+            function calculateSales(visitors) {
+                return visitors * conversionRate * avgPrice;
+            }
+
+            function updateChart(xVisitors) {
+                const yahooSales = calculateSales(baseVisitors);
+                const totalVisitors = baseVisitors + parseInt(xVisitors, 10);
+                const combinedSales = calculateSales(totalVisitors);
+
+                trafficValue.textContent = xVisitors;
+
+                salesChart.data.datasets[0].data = [yahooSales, combinedSales];
+                salesChart.update();
+            }
+
+            function createChart() {
+                const initialXVisitors = parseInt(slider.value, 10);
+                const yahooSales = calculateSales(baseVisitors);
+                const totalVisitors = baseVisitors + initialXVisitors;
+                const combinedSales = calculateSales(totalVisitors);
+
+                salesChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['ヤフオクのみ', 'ヤフオク + X'],
+                        datasets: [{
+                            label: '予想売上 (円)',
+                            data: [yahooSales, combinedSales],
+                            backgroundColor: [
+                                'rgba(255, 159, 64, 0.6)',
+                                'rgba(54, 162, 235, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(54, 162, 235, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value, index, values) {
+                                        return value.toLocaleString() + '円';
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y.toLocaleString() + '円';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        animation: {
+                            duration: 1000,
+                            easing: 'easeInOutQuart'
+                        }
+                    }
+                });
+            }
+
+            createChart();
+            slider.addEventListener('input', (event) => {
+                updateChart(event.target.value);
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

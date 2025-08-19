@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【Xトラブル対策】シャドウバンを回避！安全なX運用ガイド</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%);
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="gradient-bg text-white text-center py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fade-in-down">【トラブル対策編】BANリスク回避！<br>安全なX運用のため必須知識</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">アカウントの成長を妨げる最大の敵「シャドウバン」。その全てを理解し、あなたのアカウントを危険から守りましょう。</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-12">
+
+        <!-- Section 1: What is Shadowban? -->
+        <section id="what-is-shadowban" class="mb-16">
+            <div class="card p-8 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                    <svg class="w-24 h-24 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a9.97 9.97 0 01-1.563 3.029m-2.122-2.122A3 3 0 0012 11a3 3 0 00-3 3c0 .62.18 1.19.488 1.688"></path></svg>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold mb-3 text-gray-900">X運用の最大の敵「シャドウバン」とは？</h2>
+                    <p class="text-base leading-relaxed">シャドウバンとは、アカウントが凍結されていないにも関わらず、<strong>投稿の表示機会が著しく減少する</strong>ペナルティです。Xのシステムがあなたのアカウントを「不適切」または「スパム的」と自動判断することで発生し、リーチやエンゲージメントの深刻な低下を引き起こします。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Types of Shadowban -->
+        <section id="types" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10">シャドウバンの主な種類</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Search Ban -->
+                <div class="card p-6 text-center">
+                    <h3 class="text-xl font-semibold mb-2">サーチバン (検索バン)</h3>
+                    <p>あなたのツイートがハッシュタグやキーワード検索の結果に表示されなくなります。</p>
+                </div>
+                <!-- Search Suggestion Ban -->
+                <div class="card p-6 text-center">
+                    <h3 class="text-xl font-semibold mb-2">サーチサジェスチョンバン</h3>
+                    <p>検索時にあなたのアカウント名が候補（サジェスト）に表示されにくくなります。</p>
+                </div>
+                <!-- Reply Deboosting -->
+                <div class="card p-6 text-center">
+                    <h3 class="text-xl font-semibold mb-2">リプライデブースティング</h3>
+                    <p>あなたのリプライが他のユーザーから見えにくくなったり、表示順位が下げられたりします。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Causes -->
+        <section id="causes" class="mb-16 bg-amber-50 p-8 rounded-lg border border-amber-200">
+            <h2 class="text-3xl font-bold text-center mb-10 text-amber-800">主な原因 (特に注意すべき点)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex items-start gap-4">
+                    <div class="icon-box bg-amber-100 text-amber-600 flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">センシティブな画像の投稿</h3>
+                        <p class="text-sm">肌の露出が多い、特定部位が強調されたイラスト、下着姿のキャラクターなどをプロフィールやヘッダーに設定するのは非常に危険です。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="icon-box bg-amber-100 text-amber-600 flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">短期間での過剰なアクション</h3>
+                        <p class="text-sm">ボットのように大量のフォロー、いいね、リツイート、DMを短時間に行うとスパムと見なされ、ペナルティの対象となります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: How to Check -->
+        <section id="check" class="mb-16 text-center">
+            <h2 class="text-3xl font-bold mb-4">シャドウバンの確認方法</h2>
+            <p class="max-w-2xl mx-auto mb-6">外部のチェックサイトを利用するのが最も簡単で確実です。ユーザー名を入力するだけで、現在のアカウント状態を診断できます。</p>
+            <a href="https://x-shadowban-checker.fia-s.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-colors duration-300">
+                シャドウバンチェッカーで確認する
+            </a>
+        </section>
+
+        <!-- Section 5: Solutions & Prevention -->
+        <section id="solutions" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10">対処法と予防策</h2>
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="card p-6 flex items-start gap-4">
+                    <div class="icon-box bg-green-100 text-green-600 font-bold text-xl flex-shrink-0">1</div>
+                    <div>
+                        <h3 class="font-semibold text-lg">定期的な自己チェックの習慣化</h3>
+                        <p>エンゲージメントの急な低下を感じたら、すぐにチェックサイトで状態を確認しましょう。早期発見が早期解決の鍵です。</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="card p-6 flex items-start gap-4">
+                    <div class="icon-box bg-green-100 text-green-600 font-bold text-xl flex-shrink-0">2</div>
+                    <div>
+                        <h3 class="font-semibold text-lg">原因と思われる投稿の即時削除・修正</h3>
+                        <p>シャドウバンが確認されたら、規約に抵触しそうな直近の投稿を速やかに削除または修正してください。</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="card p-6 flex items-start gap-4">
+                    <div class="icon-box bg-green-100 text-green-600 font-bold text-xl flex-shrink-0">3</div>
+                    <div>
+                        <h3 class="font-semibold text-lg">「センシティブな内容」設定の適切な活用</h3>
+                        <p>肌の露出が多いイラスト等は、必ず「センシティブな内容を含む」フィルターをかけて投稿しましょう。ただし、過激な内容は対象となる可能性があります。</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="card p-6 flex items-start gap-4">
+                    <div class="icon-box bg-green-100 text-green-600 font-bold text-xl flex-shrink-0">4</div>
+                    <div>
+                        <h3 class="font-semibold text-lg">一定期間の「おとなしい」運用</h3>
+                        <p>ペナルティ後は、投稿頻度を減らし、フォローやいいね等の積極的なアクションを控えて、解除されるのを待ちます。</p>
+                    </div>
+                </div>
+                 <!-- Step 5 -->
+                 <div class="card p-6 flex items-start gap-4">
+                    <div class="icon-box bg-green-100 text-green-600 font-bold text-xl flex-shrink-0">5</div>
+                    <div>
+                        <h3 class="font-semibold text-lg">遅延型シャドウバンへの警戒</h3>
+                        <p>ペナルティは投稿直後ではなく、数時間後に課されることもあります。投稿後、時間を置いてから再度チェックするのも有効です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: What NOT to do -->
+        <section id="warning" class="bg-red-100 border-l-4 border-red-500 text-red-800 p-8 rounded-r-lg">
+            <h3 class="text-2xl font-bold mb-3 flex items-center gap-3">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                絶対にやってはいけないこと
+            </h3>
+            <p class="text-lg"><strong>シャドウバンされた状態を放置し、問題のある投稿を続けること。</strong></p>
+            <p>これを続けるとペナルティが重くなり、最悪の場合、アカウントが<strong class="underline">永久凍結</strong>される可能性があります。</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-8 mt-16">
+        <p>シャドウバンの仕組みを正しく理解し、日頃から慎重な運用を心がけることで、リスクは大幅に軽減できます。</p>
+        <p class="text-sm text-gray-400 mt-2">&copy; 2024 安全なX運用ガイド. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
