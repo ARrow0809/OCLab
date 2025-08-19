@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>オリキャラX運用 成功ロードマップ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
@@ -207,6 +208,12 @@
                             <option value="収益化・ブランド確立期">段階 3：収益化・ブランド確立期</option>
                         </select>
                     </div>
+                    <!-- API Key (One-time, in-memory only) -->
+                    <div>
+                        <label for="api-key" class="block text-sm font-medium text-gray-300 mb-2">APIキー（ブラウザ内で一時利用・保存しません）</label>
+                        <input id="api-key" type="password" inputmode="text" autocomplete="off" spellcheck="false" class="w-full bg-gray-900 border border-gray-600 rounded-md p-3 text-white focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="例：AIza... または sk-..." aria-describedby="api-key-help" />
+                        <p id="api-key-help" class="mt-2 text-xs text-gray-400">キーはリクエスト時のみメモリ上で使用し、その後すぐ破棄します。localStorage, sessionStorage, Cookie へ保存しません。</p>
+                    </div>
                     <div>
                         <button id="generate-plan-btn" class="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed">
                             <span id="button-text">戦略プランを生成 ✨</span>
@@ -261,6 +268,7 @@
         const errorMessage = document.getElementById('error-message');
         const generatedContent = document.getElementById('generated-content');
         const buttonText = document.getElementById('button-text');
+        const apiKeyInput = document.getElementById('api-key');
 
         // --- Event Listener ---
         generateBtn.addEventListener('click', handleGeneration);
@@ -280,10 +288,17 @@
             setupUIForLoading();
 
             const growthStage = growthStageSelect.value;
+            const apiKey = (apiKeyInput?.value || '').trim();
+
+            if (!apiKey) {
+                displayError('APIキーを入力してください。保存はしません。');
+                resetUIAfterLoading();
+                return;
+            }
             const prompt = createPrompt(charDescription, growthStage);
 
             try {
-                const text = await callGeminiAPI(prompt);
+                const text = await callGeminiAPI(prompt, apiKey);
                 const htmlContent = formatResponseToHTML(text);
                 displaySuccess(htmlContent);
             } catch (error) {
@@ -291,6 +306,15 @@
                 displayError('AIの応答取得中にエラーが発生しました。しばらくしてからもう一度お試しください。');
             } finally {
                 resetUIAfterLoading();
+                // 一時利用のためAPIキーを即座に破棄
+                if (apiKeyInput) {
+                    try {
+                        // 一旦typeをtextに切り替えてから値を消すと、ブラウザ実装によってはメモリ上の扱いが改善される場合があります
+                        apiKeyInput.type = 'text';
+                        apiKeyInput.value = '';
+                        apiKeyInput.type = 'password';
+                    } catch(_) {}
+                }
             }
         }
 
@@ -394,11 +418,10 @@
          * @param {number} delay - The initial delay between retries in ms.
          * @returns {Promise<string>} A promise that resolves with the generated text.
          */
-        async function callGeminiAPI(prompt, retries = 3, delay = 1000) {
+        async function callGeminiAPI(prompt, apiKey, retries = 3, delay = 1000) {
             const payload = {
                 contents: [{ role: "user", parts: [{ text: prompt }] }]
             };
-            const apiKey = ""; // This will be handled by the environment.
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
             for (let i = 0; i < retries; i++) {
@@ -406,6 +429,8 @@
                     const response = await fetch(apiUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
+                        cache: 'no-store',
+                        referrerPolicy: 'no-referrer',
                         body: JSON.stringify(payload)
                     });
 
